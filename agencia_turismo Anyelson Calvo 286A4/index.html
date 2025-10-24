@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agencia de Turismo Venezuela</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+   <header>
+   <h1>🌟STAR 8 Fulldays 🌟</h1>
+    <div id="carrito-icono" onclick="mostrarCarrito()">🛒 <span id="contadorCarrito">0</span></div>
+  </header>
+
+  <section class="destinos">
+    <div class="destino">
+      <img src="merida.jfif" alt="Mérida">
+      <h3>Mérida</h3>
+      <p>Montañas, clima frío, teleférico más largo del mundo.</p>
+      <p>Precio: $120 por noche</p>
+      <button onclick="agregarDestino('Mérida', 120, 'merida.jfif')">Seleccionar</button>
+    </div>
+    <div class="destino">
+      <img src="margarita.jfif" alt="Margarita">
+      <h3>Isla de Margarita</h3>
+      <p>Playas paradisíacas, vida nocturna, compras libres de impuestos.</p>
+      <p>Precio: $150 por noche</p>
+      <button onclick="agregarDestino('Isla de Margarita', 150, 'margarita.jfif')">Seleccionar</button>
+    </div>
+    <div class="destino">
+      <img src="salto.jfif" alt="Canaima">
+      <h3>Canaima</h3>
+      <p>Salto Ángel, selva tropical, paisajes únicos.</p>
+      <p>Precio: $200 por noche</p>
+      <button onclick="agregarDestino('Canaima', 200, 'salto.jfif')">Seleccionar</button>
+    </div>
+  </section>
+
+  <!-- Modal emergente del carrito -->
+  <!-- Modal emergente del carrito -->
+<div id="modalCarrito" class="modal">
+  <div class="modal-contenido">
+    <span class="cerrar" onclick="cerrarCarrito()">&times;</span>
+    <h2>🧳 Carrito de Reservas</h2>
+
+    <!-- Lista de destinos seleccionados -->
+    <div id="detalleDestino"></div>
+
+    <!-- Botones para añadir o pagar -->
+    <div id="botonesCarrito">
+      <button onclick="añadirOtroDestino()">➕ Añadir otro destino</button>
+      <button onclick="irAPagar()">💳 Ir a pagar</button>
+    </div>
+
+    <!-- Formulario de compra -->
+    <form id="formularioCompra" action="procesar_reserva.php" method="POST" style="display: none;">
+      <input type="hidden" name="destino" id="formDestino">
+      <input type="hidden" name="precio" id="formPrecio">
+
+      <label>Fecha de reserva:</label><br>
+      <input type="date" name="fecha_reserva" required><br><br>
+
+      <label>Fecha de viaje:</label><br>
+      <input type="date" name="fecha_viaje" required><br><br>
+
+      <label>Nombre:</label><br>
+      <input type="text" name="nombre" required><br><br>
+
+      <label>Apellido:</label><br>
+      <input type="text" name="apellido" required><br><br>
+
+      <label>Cédula:</label><br>
+      <input type="text" name="cedula" required><br><br>
+
+      <label>Teléfono:</label><br>
+      <input type="tel" name="telefono" required><br><br>
+
+      <label>Cantidad de personas:</label><br>
+      <input type="number" name="cantidad_personas" min="1" required><br><br>
+
+      <button type="submit">Confirmar Reserva</button>
+    </form>
+  </div>
+</div>
+
+
+  <script src="funciones.js"></script>
+</body>
+</html>
